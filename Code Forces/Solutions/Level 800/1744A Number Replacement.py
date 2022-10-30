@@ -2,15 +2,19 @@ def number_replacement():
     t = int(input())
     for i in range(t):
         len_arr = int(input())
-        a = list(map(int, input().split()))
-        elements = set(a)
+        elements = list(map(int, input().split()))
         string = input()
+        for j in range(len_arr):
+            a = elements[j]
+            for k in range(len_arr):
+                if elements[k] == a:
+                    elements[k] = string[j]
+        flag = 'Yes'
         for k in range(len_arr):
-            a[k] = string[k]
-        if len(elements) >= len(string):
-            print('Yes')
-        else:
-            print('No')
+            if elements[k] != string[k]:
+                flag = 'No'
+                break
+        print(flag)
 
 
 def main():
